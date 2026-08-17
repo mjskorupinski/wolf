@@ -112,5 +112,36 @@ INSTRUMENT_SYMBOLS = [
     'PFE',      # Pfizer
     'CAT',      # Caterpillar
     'GE',       # GE Aerospace
-    'LMT'       # Lockheed Martin
+    'LMT',      # Lockheed Martin
+
+    # Benchmarks
+    'SPY',
+    '^VIX',
+
+    # Sector ETFs
+    'XLK',
+    'XLF',
+    'XLV',
+    'XLY',
+    'XLP',
+    'XLE',
+    'XLI',
+    'XLU',
+    'XLRE',
+    'XLB',
+    'XLC'
 ]
+
+SECTOR_ETF_MAP = {
+    "Technology": "XLK",
+    "Financial Services": "XLF",
+    "Healthcare": "XLV",
+    "Consumer Cyclical": "XLY",
+    "Consumer Defensive": "XLP",
+    "Energy": "XLE",
+    "Industrials": "XLI",
+    "Utilities": "XLU",
+    "Real Estate": "XLRE",
+    "Basic Materials": "XLB",
+    "Communication Services": "XLC",
+}

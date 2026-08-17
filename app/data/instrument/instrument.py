@@ -3,7 +3,7 @@ from newspaper import Article
 
 from core.tools.logger import get_logger
 
-from datetime import datetime, timedelta
+from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import pandas as pd
@@ -42,6 +42,10 @@ class Instrument:
     @property
     def full_name(self):
         return self.info.get('longName')
+    
+    @property
+    def sector(self):
+        return self.info.get('sector')
     
     @property
     def current_price(self):

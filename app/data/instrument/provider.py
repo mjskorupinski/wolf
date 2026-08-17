@@ -1,7 +1,10 @@
-from core.data.instrument.instrument import Instrument
-from core.data.instrument.symbols import INSTRUMENT_SYMBOLS
+from app.data.instrument.instrument import Instrument
+from app.data.instrument.symbols import INSTRUMENT_SYMBOLS
 
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor
+
+class InstrumentNotSupported(Exception):
+    pass
 
 class InstrumentProvider:
     def __init__(self, instrument_symbols = INSTRUMENT_SYMBOLS):
@@ -21,8 +24,13 @@ class InstrumentProvider:
             instruments[symbol] = Instrument(symbol)
         return instruments
 
-    def get_instrument(self, symbol) -> Instrument:
-        return self._instruments.get(symbol)
+    def get_instrument(self, symbol: str) -> Instrument:
+        instrument = self._instruments.get(symbol)
+
+        if instrument is None:
+            raise InstrumentNotSupported(f'No instrument found for symbol {symbol}.')
+        
+        return instrument
     
     def names_to_symbols(self) -> dict:
         names_to_symbols = {}
