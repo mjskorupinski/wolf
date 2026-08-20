@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 from langchain_core.language_models.chat_models import BaseChatModel
 
-from core.data.instrument.instrument import Instrument
+from app.data.instrument.instrument_legacy import Instrument
 
 from app.advisor.analyst.model import AnalystDecision
 from app.advisor.analyst.chain.base import BaseChainWrapper

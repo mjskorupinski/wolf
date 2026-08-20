@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from core.data.instrument.instrument import Instrument
-from core.data.currency.converter import CurrencyConverter
+from app.data.instrument.instrument_legacy import Instrument
+from app.data.currency.converter import CurrencyConverter
 
 import pandas as pd
 

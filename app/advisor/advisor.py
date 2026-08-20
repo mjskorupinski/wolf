@@ -9,7 +9,7 @@ from app.advisor.analyst.autonomous import (
     GeneralAnalyst,
     SimpleWordTranslator
 )
-from app.data.instrument.instrument import Instrument
+from app.data.instrument.instrument_legacy import Instrument
 from app.tools.time import measure_exec_time
 
 from enum import Enum, auto

@@ -15,13 +15,13 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-from app.persistence.repository import PortfolioRepository
-from core.portfolio.asset import Portfolio, Asset
+from app.persistence.repository.portfolio import PortfolioRepository
+from app.portfolio.asset import Portfolio, Asset
 from app.advisor.advisor import InvestingAdvisor
 from app.advisor.genai import AzureModelProvider
 
-from core.data.instrument.provider import InstrumentProvider
-from core.data.currency.converter import CurrencyConverter
+from app.data.instrument.provider import InstrumentProvider
+from app.data.currency.converter import CurrencyConverter
 
 SUPPORTED_CURRENCIES = ["USD", "EUR", "PLN"]
 
@@ -54,7 +54,7 @@ def get_repository():
 @st.cache_resource
 def get_instrument_provider():
     instrument_provider = InstrumentProvider()
-    instrument_provider.eager_load_instruments()
+    instrument_provider.sync_instrument_data()
     return instrument_provider
 
 @st.cache_resource
